@@ -8,7 +8,6 @@ struct student_type student_db[std_size];
 
 
 
-
 //check if database is full
 bool sdb_isfull(void)
 {
@@ -17,11 +16,16 @@ bool sdb_isfull(void)
 }
 
 
+
+
 //gives the number of entries in database
 uint8 sdb_getusedsize(void)
 {
     return counter;
 }
+
+
+
 
 //add entry
 bool sdb_addentry()
@@ -29,11 +33,9 @@ bool sdb_addentry()
     uint8 arr_1[3],c;
     uint32 arr_2[3];
 
-
     printf("\nplease enter the number of students you want to enter their data\n");
 c:
     scanf("%d",&c);
-
 
     if(counter==0 && 3<=c && c<=std_size-counter)
     {
@@ -49,7 +51,6 @@ c:
             {
                 printf("Please,Enter the course %d id\n",i+1);
                 scanf("%d",&arr_1[i]);
-
 k2:
                 printf("Please,Enter the course %d grade\n",i+1);
                 scanf("%d",&arr_2[i]);
@@ -80,8 +81,6 @@ k2:
     }
 
 
-
-
     if(counter==1 && 2<=c && c<=std_size-counter)
     {
         for(j=0; j<c; j++)
@@ -96,7 +95,6 @@ k2:
             {
                 printf("Please,Enter the course %d id\n",i+1);
                 scanf("%d",&arr_1[i]);
-
 k3:
                 printf("Please,Enter the course %d grade\n",i+1);
                 scanf("%d",&arr_2[i]);
@@ -141,7 +139,6 @@ k3:
             {
                 printf("Please,Enter the course %d id\n",i+1);
                 scanf("%d",&arr_1[i]);
-
 k4:
                 printf("Please,Enter the course %d grade\n",i+1);
                 scanf("%d",&arr_2[i]);
@@ -186,7 +183,6 @@ k4:
             {
                 printf("Please,Enter the course %d id\n",i+1);
                 scanf("%d",&arr_1[i]);
-
 k5:
                 printf("Please,Enter the course %d grade\n",i+1);
                 scanf("%d",&arr_2[i]);
@@ -215,8 +211,10 @@ k5:
         printf("wrong number! please enter number between %d and %d\n",counter,std_size-counter);
         goto c;
     }
-return false;
+    return false;
 }
+
+
 
 
 //delete entry
@@ -238,12 +236,15 @@ void sdb_deleteentry(uint8 id)
 }
 
 
+
+
 //read entry
 bool sdb_readentry(uint8 id)
 {
     for(i=0; i<counter; i++)
     {
-        if(student_db[i].student_id==id ){
+        if(student_db[i].student_id==id )
+        {
             printf("\nthe student id is %d\n",student_db[i].student_id);
             printf("the student year is %d\n",student_db[i].student_year);
 
@@ -257,13 +258,14 @@ bool sdb_readentry(uint8 id)
             printf("the student course %d grade is %d\n",3,student_db[i].course3_grade);
 
             return true;
-            }
-
         }
+    }
 
     return false;
-
 }
+
+
+
 
 //get list
 void sdb_getlist(uint8 *count,uint8 *list)
@@ -272,10 +274,11 @@ void sdb_getlist(uint8 *count,uint8 *list)
     for(i=0; i<*count; i++)
     {
         printf("%d\n",*(list+(sizeof(struct student_type)*i/4)));
-
     }
     printf("\n");
 }
+
+
 
 
 //check is entered id exists
@@ -290,13 +293,14 @@ bool sdb_isidexists(uint8 id)
 }
 
 
+
+//function to loop
 void sdb_app()
 {
     uint8 x=-1;
 
     do
     {
-
         printf("1. To add entry, enter 1\n");
         printf("2. To get used size in database, enter 2\n");
         printf("3. To read student data, enter 3 \n");
@@ -316,6 +320,9 @@ void sdb_app()
     while(x!=0);
 }
 
+
+
+//fun used to implement the selected function
 void sdb_action(uint8 choice)
 {
     uint8 y,z,a;
@@ -350,13 +357,5 @@ void sdb_action(uint8 choice)
         printf("\nis full?\n%d\n\n",sdb_isfull());
         break;
     case 0:
-
-
     }
 }
-
-
-
-
-
-
