@@ -2,7 +2,6 @@
 #ifndef FILE_H_INCLUDED   // means if its not defined then define it
 #define FILE_H_INCLUDED
 
-
 #include<stdio.h>
 #include<stdlib.h>
 #include <stdbool.h>
@@ -10,7 +9,6 @@
 #define std_size 10
 //#define true 1
 //#define false 0
-
 
 typedef int uint8;
 typedef char Int8;
@@ -48,16 +46,4 @@ struct student_type
 
 };
 
-
-
-
-
-
-
-
-
-
-
-
 #endif // FILE_H_INCLUDED
-
