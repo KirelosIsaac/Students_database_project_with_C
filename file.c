@@ -7,7 +7,6 @@ struct student_type student_db[std_size];
 
 
 
-
 //check if database is full
 bool sdb_isfull(void)
 {
